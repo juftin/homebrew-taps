@@ -1,8 +1,6 @@
 # typed: true
 # frozen_string_literal: true
 
-require "language/python"
-
 # 🗂️ a pleasant file explorer in your terminal
 #
 # This formula installs the Browsr python package, which is a TUI
