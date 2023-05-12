@@ -1,6 +1,8 @@
 # typed: true
 # frozen_string_literal: true
 
+require "language/python"
+
 # 🗂️ a pleasant file explorer in your terminal
 #
 # This formula installs the Browsr python package, which is a TUI
@@ -10,16 +12,17 @@
 class Browsr < Formula
   include Language::Python::Virtualenv
 
-  desc "🗂️ a pleasant file explorer in your terminal"
+  desc "Python package for browser automation"
   homepage "https://github.com/juftin/browsr"
   url "https://github.com/juftin/browsr/archive/v1.2.2.tar.gz"
+  sha256 "926e89031b09ab1e4c4bff82ffffcd700266707c9e8643f6dfa0a42d2b4c22a9"
   license "MIT"
 
-  depends_on "python@3.10"
+  depends_on "python"
 
   def install
-    virtualenv_create(libexec, "python3.10")
-    system libexec/"bin/python", "-m", "pip", "install", ".[all]"
+    virtualenv_create(libexec, "python3")
+    system libexec/"bin/pip", "install", "-v", ".[all]"
     bin.install_symlink libexec/"bin/browsr"
   end
 
