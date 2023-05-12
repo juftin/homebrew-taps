@@ -18,8 +18,8 @@ class Browsr < Formula
   depends_on "python@3.10"
 
   def install
-    virtualenv_create(libexec, "python3")
-    system libexec/"bin/pip", "install", ".[all]"
+    virtualenv_create(libexec, "python3.10")
+    system libexec/"bin/python", "-m", "pip", "install", ".[all]"
     bin.install_symlink libexec/"bin/browsr"
   end
 
